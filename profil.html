@@ -7,6 +7,297 @@
     <link rel="icon" type="image/x-icon" href="dokumentasi/logo/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Plus+Jakarta+Sans:wght@500;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ============================================================
+           PROFIL PAGE STYLES
+           ============================================================ */
+
+        /* SUB HEADER */
+        .sub-header {
+            padding: 200px 10% 120px;
+            background: linear-gradient(rgba(5, 26, 20, 0.80), rgba(5, 26, 20, 0.80)),
+                        url('dokumentasi/gedung/sma.png') center/cover no-repeat fixed;
+            color: white;
+            text-align: center;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .sub-header .section-tag { color: var(--accent); font-size: 1rem; letter-spacing: 5px; }
+        .sub-header h1 {
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 800;
+            color: white;
+            margin: 15px 0 20px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        .sub-header p {
+            font-size: clamp(1rem, 1.8vw, 1.3rem);
+            color: rgba(255,255,255,0.75);
+            max-width: 600px;
+        }
+
+        /* ============================================================
+           STATS BAR
+           ============================================================ */
+        .stats-bar {
+            background: var(--accent);
+            padding: 30px 10%;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        .stat-item { border-right: 1px solid rgba(0,0,0,0.15); }
+        .stat-item:last-child { border-right: none; }
+        .stat-num {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            font-weight: 800;
+            color: var(--dark);
+            display: block;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: rgba(5,26,20,0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 6px;
+            display: block;
+        }
+
+        /* ============================================================
+           IDENTITAS SEKOLAH
+           ============================================================ */
+        .identitas-section {
+            padding: 100px 0;
+            background: #fff;
+        }
+        .identitas-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 70px;
+            align-items: center;
+        }
+        .identitas-visual {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+        .identitas-logo {
+            width: 180px;
+            height: 180px;
+            object-fit: contain;
+            filter: drop-shadow(0 10px 30px rgba(10,77,60,0.2));
+        }
+        .identitas-nama {
+            text-align: center;
+        }
+        .identitas-nama h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+        .identitas-nama span {
+            font-size: 0.85rem;
+            color: #999;
+            font-weight: 500;
+        }
+        .npsn-badge {
+            background: var(--primary);
+            color: var(--accent);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        /* Info cards kanan */
+        .identitas-info { display: flex; flex-direction: column; gap: 0; }
+        .identitas-info h2 {
+            font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .identitas-info .sub-desc {
+            color: #888;
+            font-size: 0.95rem;
+            margin-bottom: 35px;
+            line-height: 1.6;
+        }
+        .info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 18px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .info-row:last-child { border-bottom: none; }
+        .info-icon {
+            width: 44px; height: 44px;
+            background: #f0f7f4;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .info-detail { flex: 1; }
+        .info-detail label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #aaa;
+            margin-bottom: 4px;
+        }
+        .info-detail span {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        /* ============================================================
+           SAMBUTAN KEPALA SEKOLAH
+           ============================================================ */
+        .sambutan-section {
+            padding: 100px 0;
+            background: var(--dark);
+            position: relative;
+            overflow: hidden;
+        }
+        .sambutan-section::before {
+            content: '';
+            position: absolute;
+            top: -150px; right: -150px;
+            width: 500px; height: 500px;
+            border-radius: 50%;
+            background: rgba(212,175,55,0.04);
+            pointer-events: none;
+        }
+        .sambutan-layout {
+            display: grid;
+            grid-template-columns: 1fr 1.8fr;
+            gap: 70px;
+            align-items: center;
+        }
+        .kepsek-foto-wrap {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .kepsek-foto {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border-radius: 24px;
+            border: 3px solid var(--accent);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        }
+        /* Placeholder kalau foto belum ada */
+        .kepsek-placeholder {
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 3/4;
+            border-radius: 24px;
+            border: 3px solid var(--accent);
+            background: rgba(255,255,255,0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            color: rgba(255,255,255,0.4);
+        }
+        .kepsek-placeholder span { font-size: 4rem; }
+        .kepsek-placeholder p { font-size: 0.8rem; text-align: center; line-height: 1.5; }
+        .kepsek-name-card {
+            background: var(--accent);
+            color: var(--dark);
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-align: center;
+            width: 100%;
+            max-width: 300px;
+        }
+        .kepsek-name-card h4 { font-size: 1rem; font-weight: 800; margin-bottom: 3px; }
+        .kepsek-name-card span { font-size: 0.78rem; font-weight: 600; opacity: 0.8; }
+
+        /* Teks sambutan */
+        .sambutan-text .section-tag { color: var(--accent); }
+        .sambutan-text h2 {
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 800;
+            color: white;
+            margin: 12px 0 25px;
+            line-height: 1.15;
+        }
+        .sambutan-quote {
+            border-left: 4px solid var(--accent);
+            padding-left: 25px;
+            margin-bottom: 25px;
+        }
+        .sambutan-quote p {
+            font-size: 1.05rem;
+            color: rgba(255,255,255,0.85);
+            line-height: 1.8;
+            font-style: italic;
+        }
+        .sambutan-body p {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* ============================================================
+           VISI MISI (override padding biar konsisten)
+           ============================================================ */
+        .profil-visi-wrap {
+            background: #f8fbf8;
+            padding: 100px 0;
+        }
+        .profil-visi-wrap .visi-misi-section {
+            padding: 0;
+            background: transparent;
+        }
+        .profil-visi-wrap .vm-left h2,
+        .profil-visi-wrap .vm-layout h2 { color: var(--primary); }
+        .profil-visi-wrap .misi-list li { border-bottom-color: rgba(0,0,0,0.08); }
+        .profil-visi-wrap .misi-list p { color: #555; }
+        .profil-visi-wrap .visi-card blockquote { color: var(--dark); }
+        .profil-visi-wrap .vm-intro { color: #666; }
+        .profil-visi-wrap .visi-card {
+            background: white;
+            border: 1px solid rgba(212,175,55,0.3);
+            border-left: 4px solid var(--accent);
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 1024px) {
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .stat-item:nth-child(2) { border-right: none; }
+            .identitas-layout,
+            .sambutan-layout { grid-template-columns: 1fr; }
+            .identitas-visual { flex-direction: row; justify-content: center; }
+        }
+        @media (max-width: 600px) {
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .identitas-visual { flex-direction: column; }
+        }
+    </style>
 </head>
 <body>
 
@@ -20,70 +311,200 @@
     </div>
     <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="profil.html" class="active">Profil</a></li> 
+        <li><a href="profil.html" class="active">Profil</a></li>
         <li><a href="program.html">Program</a></li>
         <li><a href="fasilitas.html">Fasilitas</a></li>
-        <li><a href="kontak.html">Kontak</a></li>   
+        <li><a href="kontak.html">Kontak</a></li>
     </ul>
 </nav>
 
-<!-- Tambahan style padding-top biar kontennya gak ketutup navbar yang fixed -->
-<section class="visi-misi-section" style="padding-top: 150px; min-height: 100vh;">
+<!-- SUB HEADER -->
+<header class="sub-header">
+    <span class="section-tag">Mengenal Kami</span>
+    <h1>Profil Sekolah</h1>
+    <p>Mengenal lebih dalam SMA Sains Miftahul Huda — sekolah boarding berbasis sains dan nilai Islami.</p>
+</header>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+    <div class="stat-item">
+        <span class="stat-num">2025</span>
+        <span class="stat-label">Tahun Berdiri</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-num">2</span>
+        <span class="stat-label">Tahun Percepatan</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-num">7</span>
+        <span class="stat-label">Kitab Kuning</span>
+    </div>
+    <div class="stat-item">
+        <span class="stat-num">4</span>
+        <span class="stat-label">Ekstrakurikuler</span>
+    </div>
+</div>
+
+<!-- IDENTITAS SEKOLAH -->
+<section class="identitas-section">
     <div class="container">
-        <div class="vm-layout">
+        <div class="identitas-layout">
 
-            <!-- Kiri: Visi -->
-            <div class="vm-left">
-                <span class="section-tag">Identitas Kami</span>
-                <h2>Visi & Misi</h2>
-                <p class="vm-intro">Fondasi nilai yang menjadi landasan seluruh kegiatan akademik dan pembentukan karakter di SSMH.</p>
-
-                <div class="visi-card">
-                    <div class="visi-card-label">VISI</div>
-                    <blockquote>
-                        "Terwujudnya peserta didik yang berakhlak mulia, unggul dalam sains dan teknologi, berwawasan global, serta mampu berkontribusi positif bagi masyarakat."
-                    </blockquote>
+            <!-- Kiri: Logo & Nama -->
+            <div class="identitas-visual">
+                <img src="dokumentasi/logo/images__6_-removebg-preview.png" alt="Logo SSMH" class="identitas-logo">
+                <div class="identitas-nama">
+                    <h3>SMA Sains<br>Miftahul Huda</h3>
+                    <span>Nganjuk, Jawa Timur</span>
                 </div>
+                <div class="npsn-badge">BOARDING SCHOOL</div>
             </div>
 
-            <!-- Kanan: Misi -->
-            <div class="vm-right">
-                <div class="misi-label-top">MISI</div>
-                <ul class="misi-list">
-                    <li>
-                        <span class="misi-num">01</span>
-                        <p>Menanamkan nilai-nilai keimanan, ketakwaan, dan akhlak mulia dalam seluruh aspek pembelajaran.</p>
-                    </li>
-                    <li>
-                        <span class="misi-num">02</span>
-                        <p>Menyelenggarakan pendidikan berfokus sains dan teknologi sesuai era digital.</p>
-                    </li>
-                    <li>
-                        <span class="misi-num">03</span>
-                        <p>Mengembangkan budaya belajar yang aktif, kreatif, inovatif, dan berpusat pada siswa.</p>
-                    </li>
-                    <li>
-                        <span class="misi-num">04</span>
-                        <p>Mewujudkan lingkungan sekolah yang disiplin, aman, nyaman, dan berkarakter unggul.</p>
-                    </li>
-                    <li>
-                        <span class="misi-num">05</span>
-                        <p>Mengembangkan kegiatan ekstrakurikuler variatif untuk karakter dan prestasi siswa.</p>
-                    </li>
-                    <li>
-                        <span class="misi-num">06</span>
-                        <p>Membangun kerja sama harmonis dengan orang tua, masyarakat, dan lembaga mitra.</p>
-                    </li>
-                    <li>
-                        <span class="misi-num">07</span>
-                        <p>Menyiapkan lulusan mandiri, berdaya saing tinggi, dan siap menghadapi tantangan global.</p>
-                    </li>
-                </ul>
+            <!-- Kanan: Info Detail -->
+            <div class="identitas-info">
+                <span class="section-tag" style="color: var(--accent);">Identitas</span>
+                <h2>Data Sekolah</h2>
+                <p class="sub-desc">Informasi resmi SMA Sains Miftahul Huda sebagai lembaga pendidikan menengah atas berbasis sains dan nilai-nilai keislaman.</p>
+
+                <div class="info-row">
+                    <div class="info-icon">🏫</div>
+                    <div class="info-detail">
+                        <label>Nama Lengkap</label>
+                        <span>SMA Sains Miftahul Huda</span>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-icon">📅</div>
+                    <div class="info-detail">
+                        <label>Tanggal Berdiri</label>
+                        <span>15 Mei 2025</span>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-icon">📍</div>
+                    <div class="info-detail">
+                        <label>Alamat</label>
+                        <span>Jl. Barito IV B No.2, Mangundikaran, Kec. Nganjuk, Kab. Nganjuk, Jawa Timur</span>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-icon">📱</div>
+                    <div class="info-detail">
+                        <label>WhatsApp / Telepon</label>
+                        <span>0857-9998-3292</span>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-icon">✉️</div>
+                    <div class="info-detail">
+                        <label>Email Resmi</label>
+                        <span>smasainsmiftahulhuda@gmail.com</span>
+                    </div>
+                </div>
+                <div class="info-row">
+                    <div class="info-icon">📚</div>
+                    <div class="info-detail">
+                        <label>Kurikulum</label>
+                        <span>Kurikulum Merdeka dengan Pembelajaran Mendalam</span>
+                    </div>
+                </div>
             </div>
 
         </div>
     </div>
 </section>
+
+<!-- SAMBUTAN KEPALA SEKOLAH -->
+<section class="sambutan-section">
+    <div class="container">
+        <div class="sambutan-layout">
+
+            <!-- Foto Kepsek -->
+            <div class="kepsek-foto-wrap">
+                <!--
+                    GANTI <div class="kepsek-placeholder"> dengan:
+                    <img src="dokumentasi/foto/kepsek.jpg" class="kepsek-foto" alt="Kepala Sekolah">
+                    jika foto sudah tersedia
+                -->
+                <div class="kepsek-placeholder">
+                    <span>👤</span>
+                    <p>Ganti dengan foto<br>Kepala Sekolah</p>
+                </div>
+                <div class="kepsek-name-card">
+                    <h4>Nama Kepala Sekolah</h4>
+                    <span>Kepala SMA Sains Miftahul Huda</span>
+                </div>
+            </div>
+
+            <!-- Teks Sambutan -->
+            <div class="sambutan-text">
+                <span class="section-tag">Sambutan</span>
+                <h2>Pesan Kepala Sekolah</h2>
+                <div class="sambutan-quote">
+                    <p>"Kami hadir bukan sekadar untuk mencetak siswa yang pintar secara akademik, tetapi untuk melahirkan generasi yang berakhlak mulia, berpikir kritis, dan siap menghadapi tantangan dunia global."</p>
+                </div>
+                <div class="sambutan-body">
+                    <p>Selamat datang di SMA Sains Miftahul Huda. Kami adalah sekolah yang lahir dari cita-cita besar: memadukan keunggulan sains dan teknologi dengan kedalaman nilai-nilai keislaman dalam satu lingkungan pendidikan yang kondusif.</p>
+                    <p>Dengan program percepatan 2 tahun, kurikulum Merdeka Belajar, dan sistem boarding yang terkelola dengan baik, kami berkomitmen untuk memberikan pengalaman belajar terbaik bagi setiap siswa yang mempercayakan pendidikannya kepada kami.</p>
+                    <p>Kami mengundang putra-putri terbaik bangsa untuk bergabung dan bersama-sama mewujudkan masa depan yang cerah, bermartabat, dan bermanfaat bagi masyarakat luas.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- VISI & MISI -->
+<div class="profil-visi-wrap">
+    <div class="container">
+        <div class="vm-layout">
+            <div class="vm-left">
+                <span class="section-tag">Identitas Kami</span>
+                <h2 style="color: var(--primary);">Visi & Misi</h2>
+                <p class="vm-intro" style="color: #666;">Fondasi nilai yang menjadi landasan seluruh kegiatan akademik dan pembentukan karakter di SSMH.</p>
+                <div class="visi-card" style="background: white; border-color: rgba(212,175,55,0.3);">
+                    <div class="visi-card-label">VISI</div>
+                    <blockquote style="color: var(--dark);">
+                        "Terwujudnya peserta didik yang berakhlak mulia, unggul dalam sains dan teknologi, berwawasan global, serta mampu berkontribusi positif bagi masyarakat."
+                    </blockquote>
+                </div>
+            </div>
+            <div class="vm-right">
+                <div class="misi-label-top">MISI</div>
+                <ul class="misi-list">
+                    <li>
+                        <span class="misi-num">01</span>
+                        <p style="color: #555;">Menanamkan nilai-nilai keimanan, ketakwaan, dan akhlak mulia dalam seluruh aspek pembelajaran.</p>
+                    </li>
+                    <li>
+                        <span class="misi-num">02</span>
+                        <p style="color: #555;">Menyelenggarakan pendidikan berfokus sains dan teknologi sesuai era digital.</p>
+                    </li>
+                    <li>
+                        <span class="misi-num">03</span>
+                        <p style="color: #555;">Mengembangkan budaya belajar yang aktif, kreatif, inovatif, dan berpusat pada siswa.</p>
+                    </li>
+                    <li>
+                        <span class="misi-num">04</span>
+                        <p style="color: #555;">Mewujudkan lingkungan sekolah yang disiplin, aman, nyaman, dan berkarakter unggul.</p>
+                    </li>
+                    <li>
+                        <span class="misi-num">05</span>
+                        <p style="color: #555;">Mengembangkan kegiatan ekstrakurikuler variatif untuk karakter dan prestasi siswa.</p>
+                    </li>
+                    <li>
+                        <span class="misi-num">06</span>
+                        <p style="color: #555;">Membangun kerja sama harmonis dengan orang tua, masyarakat, dan lembaga mitra.</p>
+                    </li>
+                    <li>
+                        <span class="misi-num">07</span>
+                        <p style="color: #555;">Menyiapkan lulusan mandiri, berdaya saing tinggi, dan siap menghadapi tantangan global.</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
