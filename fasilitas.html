@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Fasilitas | SMA Sains Miftahul Huda</title>
+    <link rel="icon" type="image/x-icon" href="dokumentasi/logo/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ============================================================
+           FASILITAS PAGE - INLINE STYLES
+           (Jika mau, bisa dipindah ke style.css)
+           ============================================================ */
+
+    
+        /* SUB HEADER */
+        .sub-header {
+            padding: 160px 10% 80px;
+            background: linear-gradient(rgba(5, 26, 20, 0.88), rgba(5, 26, 20, 0.88)),
+                        url('dokumentasi/gedung/sma.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+        }
+
+        .sub-header .section-tag {
+            color: var(--accent);
+        }
+
+        .sub-header h1 {
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 800;
+            color: white;
+            margin: 10px 0 20px;
+        }
+
+        .sub-header p {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.7);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ============================================================
+           FASILITAS UTAMA (Boarding + Ibadah)
+           ============================================================ */
+        .fasilitas-section {
+            padding: 100px 0;
+            background: #fff;
+        }
+
+        .fas-intro {
+            text-align: center;
+            margin-bottom: 70px;
+        }
+
+        .fas-intro h2 {
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 800;
+            color: var(--primary);
+            margin: 10px 0 15px;
+        }
+
+        .fas-intro p {
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* GRID FASILITAS */
+        .fas-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .fas-card {
+            background: #f8fbf8;
+            border-radius: 24px;
+            padding: 35px 25px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fas-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: 0.3s;
+            transform-origin: left;
+        }
+
+        .fas-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(10, 77, 60, 0.1);
+            background: white;
+        }
+
+        .fas-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .fas-card-icon {
+            font-size: 3rem;
+            margin-bottom: 18px;
+            display: block;
+        }
+
+        .fas-card h3 {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .fas-card p {
+            font-size: 0.9rem;
+            color: #888;
+            line-height: 1.6;
+        }
+
+        /* FASILITAS FEATURED (Boarding School) */
+        .fas-featured {
+            grid-column: span 2;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            text-align: left;
+            padding: 45px 40px;
+        }
+
+        .fas-featured h3,
+        .fas-featured p { color: white; }
+
+        .fas-featured p { color: rgba(255,255,255,0.7); }
+
+        .fas-featured-icon {
+            font-size: 4rem;
+            flex-shrink: 0;
+        }
+
+        /* ============================================================
+           EKSTRA KURIKULER SECTION
+           ============================================================ */
+        .ekskul-section {
+            padding: 100px 0;
+            background: var(--dark);
+        }
+
+        .ekskul-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .ekskul-header h2 {
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 800;
+            color: white;
+            margin: 10px 0 15px;
+        }
+
+        .ekskul-header p {
+            color: rgba(255,255,255,0.6);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .ekskul-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .ekskul-card {
+            position: relative;
+            border-radius: 22px;
+            overflow: hidden;
+            min-height: 320px;
+            display: flex;
+            align-items: flex-end;
+            transition: 0.4s ease;
+            cursor: default;
+            border: 2px solid transparent;
+        }
+
+        /* Layer foto background */
+        .ekskul-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s ease;
+            z-index: 1;
+        }
+
+        /* Overlay gelap gradient dari bawah */
+        .ekskul-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(5, 26, 20, 0.15) 0%,
+                rgba(5, 26, 20, 0.65) 50%,
+                rgba(5, 26, 20, 0.92) 100%
+            );
+            z-index: 2;
+            transition: 0.4s ease;
+        }
+
+        /* Konten teks di atas overlay */
+        .ekskul-content {
+            position: relative;
+            z-index: 3;
+            padding: 30px 28px;
+            width: 100%;
+        }
+
+        .ekskul-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            border-color: var(--accent);
+        }
+
+        .ekskul-card:hover .ekskul-bg {
+            transform: scale(1.08);
+        }
+
+        .ekskul-card:hover .ekskul-overlay {
+            background: linear-gradient(
+                to bottom,
+                rgba(5, 26, 20, 0.2) 0%,
+                rgba(5, 26, 20, 0.7) 50%,
+                rgba(5, 26, 20, 0.95) 100%
+            );
+        }
+
+        .ekskul-icon {
+            font-size: 2.2rem;
+            margin-bottom: 14px;
+            display: block;
+        }
+
+        .ekskul-card h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .ekskul-card p {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.6;
+        }
+
+        /* ============================================================
+           CTA BANNER
+           ============================================================ */
+        .cta-banner {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, #0d6b52 100%);
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-banner p {
+            color: rgba(255,255,255,0.75);
+            font-size: 1.1rem;
+            max-width: 550px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1100px) {
+            .fas-grid { grid-template-columns: repeat(3, 1fr); }
+            .fas-featured { grid-column: span 3; }
+            .ekskul-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .fas-grid { grid-template-columns: repeat(2, 1fr); }
+            .fas-featured { grid-column: span 2; flex-direction: column; text-align: center; }
+            .ekskul-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 500px) {
+            .fas-grid { grid-template-columns: 1fr; }
+            .fas-featured { grid-column: span 1; }
+            .ekskul-grid { grid-template-columns: 1fr; }
+            .cta-btns { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVBAR (Sama persis seperti halaman lain) -->
+<nav>
+    <div class="logo-container">
+        <img src="dokumentasi/logo/images__6_-removebg-preview.png" alt="Logo SSMH" class="main-logo">
+        <div class="logo-text">
+            <span class="top">SMA SAINS</span>
+            <span class="bottom">MIFTAHUL HUDA</span>
+        </div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profil.html">Profil</a></li>
+        <li><a href="program.html">Program</a></li>
+        <li><a href="fasilitas.html" class="active">Fasilitas</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+</nav>
+
+<!-- SUB HEADER -->
+<header class="sub-header">
+    <span class="section-tag">Infrastruktur Lengkap</span>
+    <h1>Fasilitas Sekolah</h1>
+    <p>Sarana pendukung belajar dan kehidupan asrama yang modern, nyaman, dan Islami.</p>
+</header>
+
+<!-- FASILITAS UTAMA -->
+<section class="fasilitas-section">
+    <div class="container">
+        <div class="fas-intro">
+            <span class="section-tag" style="color: var(--accent);">Fasilitas Lengkap</span>
+            <h2>Dirancang untuk Keunggulan</h2>
+            <p>Setiap fasilitas dipilih untuk mendukung tumbuh kembang siswa — secara akademik, spiritual, dan fisik.</p>
+        </div>
+
+        <div class="fas-grid">
+
+            <!-- Featured: Boarding + Masjid — Ganti URL: dokumentasi/foto/masjid.jpg -->
+<div class="fas-card fas-featured">
+    <div class="fas-featured-bg" style="background-image: url('https://images.unsplash.com/photo-1564769625905-50e93615e769?q=80&w=1400');"></div>
+    <div class="fas-featured-overlay"></div>
+    <div class="fas-featured-body">
+        <span class="fas-featured-icon">🏫 </span>
+        <div>
+            <h3>Boarding School & Masjid</h3>
+            <p>Asrama nyaman dan terkelola dengan bimbingan 24 jam. Dilengkapi masjid sebagai pusat ibadah dan kajian keagamaan seluruh warga sekolah.</p>
+        </div>
+    </div>
+</div>
+
+            <!-- Masjid -->
+            <div class="fas-card">
+                <span class="fas-card-icon">🕌</span>
+                <h3>Masjid</h3>
+                <p>Pusat ibadah dan kajian keagamaan bagi seluruh warga sekolah dan santri.</p>
+            </div>
+
+            <!-- Lab Komputer -->
+            <div class="fas-card">
+                <span class="fas-card-icon">💻</span>
+                <h3>Lab Komputer</h3>
+                <p>Perangkat modern dan koneksi internet cepat untuk mendukung literasi digital siswa.</p>
+            </div>
+
+            <!-- Lab Sains -->
+            <div class="fas-card">
+                <span class="fas-card-icon">🔬</span>
+                <h3>Lab Sains</h3>
+                <p>Laboratorium lengkap untuk praktikum fisika, kimia, dan biologi secara langsung.</p>
+            </div>
+
+            <!-- Perpustakaan -->
+            <div class="fas-card">
+                <span class="fas-card-icon">📚</span>
+                <h3>Perpustakaan</h3>
+                <p>Koleksi buku sains, kitab klasik, dan referensi ilmiah untuk mendukung riset siswa.</p>
+            </div>
+
+            <!-- Lapangan -->
+            <div class="fas-card">
+                <span class="fas-card-icon">🏃</span>
+                <h3>Lapangan</h3>
+                <p>Area olahraga luas untuk mendukung aktivitas fisik, kompetisi, dan gaya hidup sehat.</p>
+            </div>
+
+            <!-- Kantin -->
+            <div class="fas-card">
+                <span class="fas-card-icon">🍽️</span>
+                <h3>Kantin</h3>
+                <p>Kantin sehat dengan menu bergizi yang memenuhi kebutuhan energi siswa sepanjang hari.</p>
+            </div>
+
+            <!-- UKS -->
+            <div class="fas-card">
+                <span class="fas-card-icon">🏥</span>
+                <h3>UKS</h3>
+                <p>Unit Kesehatan Sekolah siap memberikan pertolongan pertama dan perawatan kesehatan dasar.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- EKSTRAKURIKULER -->
+<section class="ekskul-section">
+    <div class="container">
+        <div class="ekskul-header">
+            <span class="section-tag">Pengembangan Diri</span>
+            <h2>Ekstrakurikuler</h2>
+            <p>Kegiatan di luar kelas untuk membentuk karakter, keterampilan, dan prestasi siswa.</p>
+        </div>
+
+        <div class="ekskul-grid">
+
+            <!-- PRAMUKA -->
+            <!-- Ganti URL foto: dokumentasi/ekskul/pramuka.jpg -->
+            <div class="ekskul-card">
+                <div class="ekskul-bg" style="background-image: url('dokumentasi/extra/pramuka.png');"></div>
+                <div class="ekskul-overlay"></div>
+                <div class="ekskul-content">
+                    <span class="ekskul-icon">⚜️</span>
+                    <h3>Pramuka</h3>
+                    <p>Membangun jiwa kepemimpinan, kemandirian, dan semangat gotong royong.</p>
+                </div>
+            </div>
+
+            <!-- ENGLISH CLUB -->
+            <!-- Ganti URL foto: dokumentasi/ekskul/english.jpg -->
+            <div class="ekskul-card">
+                <div class="ekskul-bg" style="background-image: url('dokumentasi/extra/inggris.png');"></div>
+                <div class="ekskul-overlay"></div>
+                <div class="ekskul-content">
+                    <span class="ekskul-icon">📖</span>
+                    <h3>English Club</h3>
+                    <p>Melatih kemampuan komunikasi Bahasa Inggris aktif untuk kesiapan global.</p>
+                </div>
+            </div>
+
+            <!-- SCIENCE CLUB -->
+            <!-- Ganti URL foto: dokumentasi/ekskul/sains.jpg -->
+            <div class="ekskul-card">
+                <div class="ekskul-bg" style="background-image: url('dokumentasi/extra/sain.png');"></div>
+                <div class="ekskul-overlay"></div>
+                <div class="ekskul-content">
+                    <span class="ekskul-icon">⚗️</span>
+                    <h3>Science Club</h3>
+                    <p>Menggali rasa ingin tahu melalui eksperimen, olimpiade sains, dan riset mandiri.</p>
+                </div>
+            </div>
+
+            <!-- RENANG -->
+            <!-- Ganti URL foto: dokumentasi/ekskul/renang.jpg -->
+            <div class="ekskul-card">
+                <div class="ekskul-bg" style="background-image: url('dokumentasi/extra/renang1.jpg');"></div>
+                <div class="ekskul-overlay"></div>
+                <div class="ekskul-content">
+                    <span class="ekskul-icon">🏊</span>
+                    <h3>Renang</h3>
+                    <p>Olahraga akuatik untuk kesehatan fisik dan pembentukan disiplin diri siswa.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="cta-banner">
+    <div class="container">
+        <h2>Siap Bergabung Bersama Kami?</h2>
+        <p>Temukan program pendidikan terbaik untuk masa depan putra-putri Anda di SMA Sains Miftahul Huda.</p>
+        <div class="cta-btns">
+            <a href="program.html" class="btn btn-primary">Lihat Program</a>
+            <a href="kontak.html" class="btn btn-outline">Hubungi Admin</a>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
