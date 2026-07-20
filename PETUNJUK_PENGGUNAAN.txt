@@ -1,0 +1,15 @@
+PETUNJUK PENGGUNAAN WEBSITE SMA SAINS MIFTAHUL HUDA
+===================================================
+
+Website ini merupakan website statis yang telah berhasil di-deploy menggunakan layanan gratis dari GitHub Pages. 
+
+Untuk mengakses dan menggunakan website, silakan ikuti langkah-langkah berikut:
+
+1. Pastikan perangkat Anda terhubung dengan koneksi internet.
+2. Buka browser web (Google Chrome, Firefox, Safari, dll).
+3. Salin dan buka URL publik berikut:
+   [https://febri-html.github.io/Web_SMA_Sains_Miftahul_Huda/profil.html]
+4. Website akan langsung terbuka. Anda dapat bernavigasi ke halaman Beranda, Profil, Program, Fasilitas, dan Kontak melalui menu navigasi yang tersedia di bagian atas website.
+
+Catatan:
+Karena website ini bersifat statis (HTML/CSS), tidak diperlukan instalasi server lokal (seperti XAMPP/Node.js) untuk menjalankannya. Jika ingin melihat secara offline, cukup buka file "index.html" yang terdapat di dalam folder source code menggunakan browser.
