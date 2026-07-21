@@ -632,6 +632,9 @@ nav a:hover, nav a.active { color: var(--accent); }
 /* ============================================================
    ROMBAK TOTAL KONTAK (ANTI AMBYAR)
    ============================================================ */
+
+   a.i-card { cursor: pointer; }
+a.i-card:hover { border-color: var(--accent); transform: translateX(10px); }
 .contact-section {
     padding: 80px 0;
     background: #f9fbfb;

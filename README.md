@@ -8,7 +8,7 @@ Proyek ini memiliki perjalanan yang cukup unik dan terbagi ke dalam dua fase pen
 
 ### Fase 1: Pameran Expo Sekolah (April 2026)
 Awalnya, website ini dibuat secara khusus atas permintaan adik saya untuk ditampilkan pada acara Expo di SMA Sains Miftahul Huda pada bulan April. Target audiens dari Expo ini adalah anak-anak SMP (calon siswa baru) beserta orang tua mereka. 
-*   **Optimalisasi Layar Lebar (TV Layar Sentuh):** Saat Expo berlangsung, website ini ditampilkan sebagai etalase digital pada layar berukuran besar (TV bantuan pemerintah). Oleh karena itu, *User Interface* (UI) dari website ini—seperti ukuran *font*, ikon, dan elemen tata letak—sengaja didesain lebih besar (*oversized*) agar mudah dibaca dan menarik perhatian pengunjung dari jarak jauh.
+*   **Optimalisasi Layar Lebar (TV Layar Sentuh):** Saat Expo berlangsung, webs ite ini ditampilkan sebagai etalase digital pada layar berukuran besar (TV bantuan pemerintah). Oleh karena itu, *User Interface* (UI) dari website ini—seperti ukuran *font*, ikon, dan elemen tata letak—sengaja didesain lebih besar (*oversized*) agar mudah dibaca dan menarik perhatian pengunjung dari jarak jauh.
 *   **Status Website:** SMA Sains Miftahul Huda sejatinya sudah memiliki website resmi. Website ini dibuat murni sebagai bentuk kreativitas, pembanding desain, dan sarana pameran visual interaktif tanpa menggunakan sistem *backend* kompleks (100% statis).
 
 ### Fase 2: Tugas UAS Cloud Computing (Juli 2026)
